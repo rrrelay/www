@@ -1,0 +1,20 @@
+{
+  "name": "www",
+  "version": "0.0.0",
+  "description": "www.deliveryrelay.com",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rrrelay/www.git"
+  },
+  "author": "",
+  "license": "none",
+  "bugs": {
+    "url": "https://github.com/rrrelay/www/issues"
+  },
+  "homepage": "https://github.com/rrrelay/www"
+}
