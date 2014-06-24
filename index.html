@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>relay</title>
+		<style>
+			html, body{
+				font-family: sans-serif;
+			}
+			h1{
+				position: fixed;
+				top:0;;
+				bottom:0;
+				left:0;
+				right:0;
+
+				color:white;
+				font-size: 200px;
+				text-align: center;
+				z-index:100;
+			}
+			#toner{
+				position:fixed;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+			}
+			#bar{
+				color: white;
+				position:fixed;
+				bottom:10%;
+				left:0;
+				right:0;
+				height: 65px;
+				background-color: black;
+				background: rgba(0, 0, 0, .84);
+			}
+			#bar > div h2{
+				text-align: center;
+			}
+			#bar > div{
+				float: left;
+				width: 33%;
+			}
+		</style>
+		<link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+	</head>
+	<body>
+		<div id="toner"></div>
+		<h1 id="header">relay</h1>
+		<div id="bar">
+			<div>
+				&nbsp;
+			</div>
+			<div>
+				<h2>info@deliveryrelay.com</h2>
+			</div>
+		</div>
+		<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="//leaflet.cloudmade.com/dist/leaflet.js"></script>
+		<script src="//maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+		<script src="shine.min.js"></script>
+		<script>
+			var byId = window.document.getElementById.bind(window.document),
+				shine = new Shine(byId('header'), new shinejs.Config({
+					numSteps: 6,
+					opacity: .75,
+					opacityPow: 2.5
+				}));
+
+			$(function(){
+				window.addEventListener('mousemove', function(event) {
+				  shine.light.position.x = event.clientX;
+				  shine.light.position.y = event.clientY;
+				  shine.draw();
+				}, false);
+
+				var map = new L.Map('toner', {
+					center: new L.LatLng(40.753, -73.98),
+					zoom: 14,
+					dragging: false,
+					tap: false,
+					scrollWheelZoom: false,
+					doubleClickZoom: false,
+					boxZoom: false,
+					zoomControl:false
+				});
+
+				map.addLayer(new L.StamenTileLayer('toner', {
+					detectRetina: true
+				}));
+			});
+		</script>
+	</body>
+</html>
